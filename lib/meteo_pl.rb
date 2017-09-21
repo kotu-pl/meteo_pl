@@ -1,6 +1,6 @@
 #!/usr/bin/env ruby
 require_relative 'meteo_pl/io/file_handler'
-require_relative 'meteo_pl/io/file_opener'
+require_relative 'meteo_pl/io/image_opener'
 require_relative 'meteo_pl/net/http'
 require_relative 'meteo_pl/utility/command'
 require_relative 'meteo_pl/utility/graph'

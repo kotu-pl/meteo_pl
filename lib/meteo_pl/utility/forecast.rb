@@ -6,6 +6,7 @@ module MeteoPl
         graph = MobileMeteoGraph.new(
           http_fetcher, location, period
         )
+
         unless !!graph.uri
           puts "Graph for given location does not exists"
           return

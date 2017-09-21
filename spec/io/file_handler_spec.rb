@@ -1,13 +1,16 @@
-require './lib/meteo_pl/io/file_handler'
-
 describe MeteoPl::IO::FileHandler do
-  let(:command_line_parser) { MeteoPl::IO::FileHandler.new(args) }
+  let(:file_handler) { MeteoPl::IO::FileHandler.new }
 
-  describe 'arguments validation' do
-    it
-  end
+  describe 'behaviour' do
+    let(:tempfile) { double('tempfile') }
+    before do
+      allow(Tempfile).to receive(:open).and_return(tempfile)
+    end
+    it 'creates tempfile and yields it' do
+      expect_any_instance_of(MeteoPl::IO::FileHandler).to receive(:open)
+        .and_yield(tempfile)
 
-  describe 'return proper data' do
-    it
+      file_handler.open { |_| }
+    end
   end
 end

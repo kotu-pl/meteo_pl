@@ -1,5 +1,3 @@
-require './lib/meteo_pl/utility/command'
-
 describe MeteoPl::Utility::Command do
   let(:command_line_parser) { MeteoPl::Utility::Command.new(args) }
   before { allow($stdout).to receive(:puts) }
