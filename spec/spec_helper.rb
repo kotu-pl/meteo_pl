@@ -1,7 +1,6 @@
 require './lib/meteo_pl'
 require './spec/support/shared_helper'
 require 'webmock/rspec'
-require 'pry'
 
 RSpec.configure do |config|
   config.include SharedHelper
