@@ -15,4 +15,5 @@ Gem::Specification.new do |s|
   s.summary       = "Weather forecast from http://www.meteo.pl"
 
   s.add_development_dependency 'rspec', '~> 3.6'
+  s.add_development_dependency 'webmock', '~> 3.1'
 end
