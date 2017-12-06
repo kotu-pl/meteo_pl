@@ -23,10 +23,22 @@ describe MeteoPl::Utility::Presenter do
       stub_request(
         :get,
         "http://m.meteo.pl/search/pl?miastoPL=Warszawa&prognozaPL=60&typePL=city"
-      ).to_return(:status => 200, :body => resp1, :headers => {})
+      ).to_return(
+        :status => 302, :headers => { location: 'http://m.meteo.pl/warszawa/60' }
+      )
+      stub_request(
+        :get, "http://m.meteo.pl/warszawa/60",
+      ).to_return(
+        status: 200, body: resp1
+      )
+      stub_request(
+        :get, /mgram_pict\.php/,
+      ).to_return(
+        status: 200, body: png_file.read, headers: { 'Content-type' => 'image/png'}
+      )
     end
+
     it 'opens file with OS supported image browser' do
-      binding.pry
       expect_any_instance_of(Kernel).to receive(:`).with(
         "xdg-open /tmp/temfile_path.png"
       )

@@ -2,7 +2,7 @@ module SharedHelper
   extend self
 
   def png_file
-    @png_file ||= File.open('./spec/support/1px.png')
+    File.open('./spec/support/1px.png')
   end
 
   def resp1

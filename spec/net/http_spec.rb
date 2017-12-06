@@ -12,7 +12,11 @@ describe MeteoPl::Net::Http do
   end
 
   describe 'return proper data' do
-    it 'body', vcr: 'example_com' do
+    before do
+      stub_request(:get, "http://example.com/").
+      to_return(status: 200, body: 'Example Domain', headers: {})
+    end
+    it 'body' do
       expect(
         http.fetch(url) { |respone| [respone.code, respone.body] }
       ).to match_array ['200', /Example Domain/]
