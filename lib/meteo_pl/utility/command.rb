@@ -40,7 +40,7 @@ module MeteoPl
 
       def parse_input
         option_parser.parse!(args)
-      rescue  OptionParser::InvalidArgument, OptionParser::MissingArgument => e
+      rescue OptionParser::InvalidArgument, OptionParser::MissingArgument => e
         @invalid = true
         puts e.message
       end
@@ -48,27 +48,31 @@ module MeteoPl
       def set_location
         return unless valid?
         @location = args.join(' ')
-        if @location.empty?
-          @invalid = true
-          puts 'LOCATION is not provided'
-        end
+        return unless @location.empty?
+        @invalid = true
+        puts 'LOCATION is not provided'
       end
 
       def option_parser
         @option_parser ||= OptionParser.new do |opts|
-          opts.banner = "Usage: LOCATION [options]"
+          opts.banner = 'Usage: LOCATION [options]'
 
-          opts.on("-t", "--timeout TIMEOUT", /^([1-9]|[1-5][0-9]|60)$/,
-            'Provide request timeout, value from 1s to 60s, default: 2s') do |timeout|
+          opts.on(
+            '-t', '--timeout TIMEOUT', /^([1-9]|[1-5][0-9]|60)$/,
+            'Provide request timeout, value from 1s to 60s, default: 2s'
+          ) do |timeout|
             options[:timeout] = timeout.first.to_i
           end
 
-          opts.on("-p", "--period PERIOD", /short|long/,
-            "Provide forecast period, either short (60h) or long (84h), default: short") do |period|
+          opts.on(
+            '-p', '--period PERIOD', /short|long/,
+            'Provide forecast period, either short (60h) or long (84h),' \
+            ' default: short'
+          ) do |period|
             options[:period] = PERIODS[period.to_sym]
           end
 
-          opts.on("-h", "--help", "Prints this help") do
+          opts.on('-h', '--help', 'Prints this help') do
             puts opts
           end
         end

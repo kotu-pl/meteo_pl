@@ -1,0 +1,32 @@
+AllCops:
+  Include:
+    - '**/Gemfile'
+    - '**/Rakefile'
+    - '**/*.gemspec'
+  Exclude:
+    - 'spec/**/*'
+  DisplayCopNames: true
+  TargetRubyVersion: 2.1
+
+ClassLength:
+  Enabled: false
+
+MethodLength:
+  Enabled: false
+
+Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
+
+Style/Send:
+  Enabled: true
+
+PercentLiteralDelimiters:
+  PreferredDelimiters:
+    '%r': '{}'
+    '%i': '[]'
+    '%w': '[]'
+    '%W': '[]'
+    '%Q': '{}'

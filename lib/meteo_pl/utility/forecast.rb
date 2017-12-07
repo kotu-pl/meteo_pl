@@ -7,8 +7,8 @@ module MeteoPl
           http_fetcher, location, period
         )
 
-        unless !!graph.uri
-          puts "Graph for given location does not exists"
+        unless graph.uri
+          puts 'Graph for given location does not exists'
           return
         end
 

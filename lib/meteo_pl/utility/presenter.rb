@@ -10,7 +10,7 @@ module MeteoPl
 
       def show
         file_handler.open do |temp_file|
-          graph_content = net_fetcher.fetch(graph.uri) { |resp| resp.body }
+          graph_content = net_fetcher.fetch(graph.uri, &:body)
           temp_file.write(graph_content)
           file_opener.path = temp_file.path
           file_opener.open

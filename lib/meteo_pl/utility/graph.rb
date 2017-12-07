@@ -51,9 +51,7 @@ module MeteoPl
 
       def fetch_graph_page
         @graph_page =
-          net_fetcher.fetch(URI(initial_response['location'])) do |response|
-            response.body
-          end
+          net_fetcher.fetch(URI(initial_response['location']), &:body)
       end
 
       def fetch_graph_uri
