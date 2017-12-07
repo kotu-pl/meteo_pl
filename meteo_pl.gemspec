@@ -1,19 +1,22 @@
-# -*- encoding: utf-8 -*-
+require File.expand_path('../lib/meteo_pl/version', __FILE__)
 
-Gem::Specification.new do |s|
-  s.name          = 'meteo_pl'
-  s.version       = '2.0.0'
-  s.date          = '2017-12-06'
-  s.description   = "Fetches and manipulates on weather forecast graphs from http://www.meteo.pl service"
-  s.authors       = ["Marcin Kot"]
-  s.email         = 'marcin@kotu.pl'
-  s.files         = ["lib/meteo_pl.rb"]
-  s.license       = 'MIT'
-  s.homepage      = "http://github.com/kotu-pl/meteo_pl"
-  s.licenses      = ["MIT"]
-  s.require_paths = ["lib"]
-  s.summary       = "Weather forecast from http://www.meteo.pl"
+Gem::Specification.new do |spec|
+  spec.name          = 'meteo_pl'
+  spec.version       = MeteoPl::VERSION
+  spec.summary       = "Weather forecast from http://www.meteo.pl"
+  spec.description   = "Fetches and manipulates on weather forecast graphs from http://www.meteo.pl service"
+  spec.license       = 'MIT'
+  spec.authors       = ["Marcin Kot"]
+  spec.email         = 'marcin@kotu.pl'
+  spec.homepage      = "http://github.com/kotu-pl/meteo_pl"
 
-  s.add_development_dependency 'rspec', '~> 3.6'
-  s.add_development_dependency 'webmock', '~> 3.1'
+  spec.files         = `git ls-files`.split("\n")
+  spec.test_files    = spec.files.grep(/^spec\//)
+  spec.require_paths = ["lib"]
+
+  spec.add_development_dependency 'rspec', '~> 3.6'
+  spec.add_development_dependency 'webmock', '~> 3.1'
+  spec.add_development_dependency 'rake', '~> 12.1'
+
+  spec.required_ruby_version = '>= 2.0'
 end

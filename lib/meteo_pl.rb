@@ -1,4 +1,3 @@
-#!/usr/bin/env ruby
 require 'meteo_pl/io/file_handler'
 require 'meteo_pl/io/image_opener'
 require 'meteo_pl/net/http'

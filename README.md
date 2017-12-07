@@ -1,5 +1,8 @@
 # meteo_pl
 
+[![Gem Version](https://img.shields.io/gem/v/meteo_pl.svg?style=flat-square&label=version)](https://rubygems.org/gems/meteo_pl)
+[![Build Status](https://img.shields.io/travis/kotu-pl/meteo_pl/master.svg?style=flat-square&label=build)](https://travis-ci.org/kotu-pl/meteo_pl)
+
 This gem fetches and manipulates on weather forecast graphs from http://www.meteo.pl service.
 It allows to fetch coamps and um diagrams separately and open open them in your default image viewer.
 
@@ -38,6 +41,7 @@ To check all available options just run a script w/o arguments or with -h flag.
 
 ### Versions
 
+*   2.0.1 Minor code improvements, add TravisCI
 *   2.0.0 Gem has been written from scratch, all external dependencies removed  
 *   1.0.0 converted to gem, option to choose um/coamps diagrams separetely and merge multiple diagrams with location labeling
 *   0.2.0 Custom city selection, code reorganization
