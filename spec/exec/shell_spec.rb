@@ -14,7 +14,7 @@ describe MeteoPl::Exec::Shell do
         )
         expect_any_instance_of(MeteoPl::Utility::Presenter).not_to receive(:show)
 
-        described_class.call
+        described_class.call(['Warszawa', '-p', 'long'])
       end
     end
 
@@ -30,7 +30,7 @@ describe MeteoPl::Exec::Shell do
         expect($stdout).not_to receive(:puts)
         expect_any_instance_of(MeteoPl::Utility::Presenter).to receive(:show)
 
-        described_class.call
+        described_class.call(['Warszawa', '-p', 'long'])
       end
     end
   end

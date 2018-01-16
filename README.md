@@ -18,10 +18,9 @@ Install gem in system-wide context, than create executable `meteo` named script:
 
 ```ruby
 #!/usr/bin/env ruby
-
 require 'meteo_pl'
 
-MeteoPl::Exec::Shell.call
+MeteoPl::Exec::Shell.call(ARGV)
 ```
 
 Than you'll be able to generate the weather forecast diagram from your command line:
@@ -39,6 +38,7 @@ To check all available options just run a script w/o arguments or with -h flag.
 
 ### Versions
 
+*   2.0.5 MeteoPl::Exec::Shell class fix 
 *   2.0.3 Adding *Exec* namespece containing example classes
 *   2.0.2 Increased code quality
 *   2.0.1 Minor code improvements, add TravisCI

@@ -1,11 +1,11 @@
 module MeteoPl
   module Exec
     module Shell
-      def call
-        command_line = MeteoPl::Utility::Command.new(ARGV)
+      def call(args)
+        command_line = MeteoPl::Utility::Command.new(args)
         return unless command_line.call
 
-        location =  command_line.location,
+        location =  command_line.location
         timeout = command_line.options[:timeout]
         period = command_line.options[:period]
 
