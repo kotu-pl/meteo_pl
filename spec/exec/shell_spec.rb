@@ -1,4 +1,4 @@
-describe MeteoPl::Utility::Forecast do
+describe MeteoPl::Exec::Shell do
   describe 'proper output' do
     context 'returns error message if location does not exist' do
       # request mock instead
@@ -14,7 +14,7 @@ describe MeteoPl::Utility::Forecast do
         )
         expect_any_instance_of(MeteoPl::Utility::Presenter).not_to receive(:show)
 
-        described_class.for('Warszawa', timeout: 2, period: 60)
+        described_class.call
       end
     end
 
@@ -30,7 +30,7 @@ describe MeteoPl::Utility::Forecast do
         expect($stdout).not_to receive(:puts)
         expect_any_instance_of(MeteoPl::Utility::Presenter).to receive(:show)
 
-        described_class.for('Warszawa', timeout: 2, period: 60)
+        described_class.call
       end
     end
   end

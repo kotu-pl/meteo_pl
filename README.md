@@ -7,6 +7,11 @@
 This gem fetches and manipulates on weather forecast graphs from http://www.meteo.pl service.
 It allows to fetch coamps and um diagrams separately and open open them in your default image viewer.
 
+**Architecture**
+
+*lib/meteo_pl/exec* directory contains usage examples (as MeteoPl::Exec::Shell class),
+you should use provided compontents to prepare similar class (or script) that meets your requirements. 
+
 **Usage example:**
 
 Install gem in system-wide context, than create executable `meteo` named script:
@@ -16,15 +21,7 @@ Install gem in system-wide context, than create executable `meteo` named script:
 
 require 'meteo_pl'
 
-command_line = MeteoPl::Utility::Command.new(ARGV)
-
-if command_line.call
- MeteoPl::Utility::Forecast.for(
-   command_line.location,
-   timeout: command_line.options[:timeout],
-   period: command_line.options[:period]
- )
-end
+MeteoPl::Exec::Shell.call
 ```
 
 Than you'll be able to generate the weather forecast diagram from your command line:
@@ -42,6 +39,7 @@ To check all available options just run a script w/o arguments or with -h flag.
 
 ### Versions
 
+*   2.0.3 Adding *Exec* namespece containing example classes
 *   2.0.2 Increased code quality
 *   2.0.1 Minor code improvements, add TravisCI
 *   2.0.0 Gem has been written from scratch, all external dependencies removed  
